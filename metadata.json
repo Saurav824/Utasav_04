@@ -1,0 +1,8 @@
+{
+  "name": "Utsav - The Festival Odyssey",
+  "description": "An immersive AI-powered platform to explore the rich cultural heritage and festivals of India, featuring interactive storytelling and custom AI-generated festival art.",
+  "requestFramePermissions": [
+    "geolocation",
+    "microphone"
+  ]
+}

@@ -1,0 +1,195 @@
+[
+  {
+    "id": 0,
+    "author": "user",
+    "payload": {
+      "type": "text",
+      "text": "HOME PAGE BACKGROUND – AI PROMPT (CULTURE & FESTIVAL THEME)\n\nPrompt:\nCreate a high-resolution, immersive home page background for a cultural and festival-themed website.\nThe scene should blend traditional Indian heritage with a modern, elegant aesthetic.\nInclude softly glowing diyas, delicate floating flower petals, subtle rangoli patterns fading into the background, warm golden light, and gentle festive ambience.\nUse rich yet balanced colors such as saffron, deep red, gold, and royal blue with smooth gradients.\nThe background must feel joyful, spiritual, and celebratory while remaining minimal and clean for website usability.\nAdd a slight cinematic depth and soft motion feel, suitable for parallax or animated overlays, without distracting foreground elements or text.",
+      "files": [],
+      "fileUploads": [],
+      "cMarkNode": {}
+    },
+    "createdTimestamp": {
+      "seconds": 1769582903,
+      "nanos": 103000000
+    }
+  },
+  {
+    "id": 1,
+    "author": "model",
+    "payload": {
+      "type": "thinking",
+      "text": "**Conceptualizing Indian Heritage**\n\nI'm focused on developing a website centered around Indian heritage, starting with a cultural and festival theme. I'm visualizing the homepage: a blend of traditional and modern aesthetics, incorporating elements like diyas, petals, rangoli, and warm lighting. Functionality will include an AI-powered cultural explorer or festival guide. I've begun to consider the technical requirements for this platform.\n\n\n**Defining Technical Implementation**\n\nI've outlined the technical architecture now, leaning towards React 18+, TypeScript, and Tailwind CSS. The Gemini API will power both a cultural question AI assistant and a festival visual generator. I'm focusing on immersive UI/UX with responsive design, aiming for a single XML block approach. My core file structure will consist of a comprehensive suite of components, services, and types.\n\n\n",
+      "cMarkNode": {}
+    },
+    "createdTimestamp": {
+      "seconds": 1769582903,
+      "nanos": 103000000
+    },
+    "doneTimestamp": {
+      "seconds": 1769582910,
+      "nanos": 469000000
+    }
+  },
+  {
+    "id": 2,
+    "author": "model",
+    "payload": {
+      "type": "generationTable",
+      "entries": [
+        {
+          "path": "metadata.json",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Metadata for the application, including name, description, and permissions.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\n{\n  \"name\": \"Utsav - The Festival Odyssey\",\n  \"description\": \"An immersive AI-powered platform to explore the rich cultural heritage and festivals of India, featuring interactive storytelling and custom AI-generated festival art.\",\n  \"requestFramePermissions\": [\n    \"geolocation\"\n  ]\n}\n"
+            }
+          ]
+        },
+        {
+          "path": "index.html",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Main HTML entry point with Tailwind CSS and Font Awesome for icons.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Utsav - The Festival Odyssey</title>\n    <script src=\"https://cdn.tailwindcss.com\"></script>\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css\">\n    <link href=\"https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap\" rel=\"stylesheet\">\n    <style>\n        body {\n            font-family: 'Inter', sans-serif;\n            margin: 0;\n            padding: 0;\n            background-color: #0c0a09;\n            color: #f5f5f4;\n            overflow-x: hidden;\n        }\n        h1, h2, h3, .font-serif {\n            font-family: 'Playfair Display', serif;\n        }\n        .bg-festive {\n            background: linear-gradient(135deg, #450a0a 0%, #7c2d12 50%, #1e3a8a 100%);\n        }\n        .glass {\n            background: rgba(255, 255, 255, 0.05);\n            backdrop-filter: blur(10px);\n            border: 1px border rgba(255, 255, 255, 0.1);\n        }\n        @keyframes float {\n            0% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }\n            50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }\n            100% { transform: translateY(0px) rotate(0deg); opacity: 0.8; }\n        }\n        .animate-float {\n            animation: float 6s ease-in-out infinite;\n        }\n        .glow-text {\n            text-shadow: 0 0 10px rgba(251, 191, 36, 0.5);\n        }\n    </style>\n</head>\n<body>\n    <div id=\"root\"></div>\n</body>\n</html>\n"
+            }
+          ]
+        },
+        {
+          "path": "index.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "React entry point using createRoot.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React from 'react';\nimport ReactDOM from 'react-dom/client';\nimport App from './App';\n\nconst rootElement = document.getElementById('root');\nif (!rootElement) {\n  throw new Error(\"Could not find root element to mount to\");\n}\n\nconst root = ReactDOM.createRoot(rootElement);\nroot.render(\n  <React.StrictMode>\n    <App />\n  </React.StrictMode>\n);\n"
+            }
+          ]
+        },
+        {
+          "path": "types.ts",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Global TypeScript types and interfaces.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nexport interface FestivalInfo {\n  name: string;\n  description: string;\n  significance: string;\n  rituals: string[];\n  history: string;\n  location: string;\n  season: string;\n}\n\nexport interface ChatMessage {\n  role: 'user' | 'assistant';\n  content: string;\n}\n\nexport interface GeneratedImage {\n  url: string;\n  prompt: string;\n}\n\nexport interface GroundingSource {\n  title: string;\n  uri: string;\n}\n"
+            }
+          ]
+        },
+        {
+          "path": "services/geminiService.ts",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Service for interacting with Gemini API for text, images, and grounding.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport { GoogleGenAI, Type, GenerateContentResponse } from \"@google/genai\";\nimport { FestivalInfo } from \"../types\";\n\nconst getAI = () => new GoogleGenAI({ apiKey: process.env.API_KEY || '' });\n\nexport const getFestivalDetails = async (festivalName: string): Promise<FestivalInfo | null> => {\n  const ai = getAI();\n  try {\n    const response = await ai.models.generateContent({\n      model: 'gemini-3-flash-preview',\n      contents: `Provide comprehensive details about the Indian festival: ${festivalName}. Include its significance, rituals, history, common locations of celebration, and traditional season.`,\n      config: {\n        responseMimeType: \"application/json\",\n        responseSchema: {\n          type: Type.OBJECT,\n          properties: {\n            name: { type: Type.STRING },\n            description: { type: Type.STRING },\n            significance: { type: Type.STRING },\n            rituals: { type: Type.ARRAY, items: { type: Type.STRING } },\n            history: { type: Type.STRING },\n            location: { type: Type.STRING },\n            season: { type: Type.STRING },\n          },\n          required: [\"name\", \"description\", \"significance\", \"rituals\", \"history\", \"location\", \"season\"],\n        },\n      },\n    });\n\n    return JSON.parse(response.text || '{}');\n  } catch (error) {\n    console.error(\"Error fetching festival details:\", error);\n    return null;\n  }\n};\n\nexport const chatWithUtsavAI = async (message: string, history: { role: 'user' | 'assistant', content: string }[]) => {\n  const ai = getAI();\n  const chat = ai.chats.create({\n    model: 'gemini-3-flash-preview',\n    config: {\n      systemInstruction: 'You are Utsav, a wise and friendly cultural guide specializing in Indian festivals, traditions, and mythology. You provide evocative, spiritual, and accurate information.',\n    },\n  });\n\n  // Convert history for the Gemini format (Gemini expects parts)\n  // But for simple chats we just pass the new message\n  const response = await chat.sendMessage({ message });\n  return response.text;\n};\n\nexport const generateFestivalArt = async (prompt: string): Promise<string | null> => {\n  const ai = getAI();\n  try {\n    const response = await ai.models.generateContent({\n      model: 'gemini-2.5-flash-image',\n      contents: {\n        parts: [\n          { text: `A cinematic, high-resolution artistic representation of the festival: ${prompt}. Style: Immersive, elegant, soft glowing lights, traditional Indian heritage blended with modern aesthetic, vibrant colors like saffron, gold, and deep blue.` }\n        ]\n      },\n      config: {\n        imageConfig: {\n          aspectRatio: \"16:9\",\n        }\n      }\n    });\n\n    for (const part of response.candidates[0].content.parts) {\n      if (part.inlineData) {\n        return `data:image/png;base64,${part.inlineData.data}`;\n      }\n    }\n    return null;\n  } catch (error) {\n    console.error(\"Error generating festival art:\", error);\n    return null;\n  }\n};\n\nexport const findNearbyFestivals = async (lat?: number, lng?: number) => {\n  const ai = getAI();\n  const query = \"What are the major festivals happening or cultural centers near me?\";\n  const config: any = {\n    tools: [{ googleMaps: {} }],\n  };\n\n  if (lat && lng) {\n    config.toolConfig = {\n      retrievalConfig: {\n        latLng: { latitude: lat, longitude: lng }\n      }\n    };\n  }\n\n  const response = await ai.models.generateContent({\n    model: 'gemini-2.5-flash',\n    contents: query,\n    config,\n  });\n\n  const sources = response.candidates?.[0]?.groundingMetadata?.groundingChunks || [];\n  return {\n    text: response.text,\n    sources: sources.map((s: any) => ({\n      title: s.maps?.title || \"Location\",\n      uri: s.maps?.uri || \"#\"\n    }))\n  };\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "components/FloatingElement.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Reusable component for floating festive particles like petals or diyas.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React from 'react';\n\ninterface FloatingElementProps {\n  type: 'petal' | 'diya';\n  style: React.CSSProperties;\n}\n\nexport const FloatingElement: React.FC<FloatingElementProps> = ({ type, style }) => {\n  if (type === 'petal') {\n    return (\n      <div className=\"absolute pointer-events-none animate-float opacity-30\" style={style}>\n        <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"#fb7185\">\n          <path d=\"M12,2C12,2 6,8 6,12C6,16 9,19 12,19C15,19 18,16 18,12C18,8 12,2 12,2Z\" />\n        </svg>\n      </div>\n    );\n  }\n\n  return (\n    <div className=\"absolute pointer-events-none animate-float opacity-50\" style={style}>\n      <div className=\"relative\">\n        <div className=\"w-8 h-4 bg-orange-900 rounded-b-full shadow-lg border-t border-orange-700\"></div>\n        <div className=\"absolute -top-3 left-1/2 -translate-x-1/2 w-3 h-5 bg-yellow-400 rounded-full blur-[2px] animate-pulse\"></div>\n      </div>\n    </div>\n  );\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "components/Hero.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "The immersive hero section with the requested background aesthetic.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React, { useEffect, useState } from 'react';\nimport { FloatingElement } from './FloatingElement';\n\nexport const Hero: React.FC = () => {\n  const [elements, setElements] = useState<any[]>([]);\n\n  useEffect(() => {\n    const newElements = Array.from({ length: 20 }).map((_, i) => ({\n      id: i,\n      type: Math.random() > 0.6 ? 'diya' : 'petal',\n      style: {\n        top: `${Math.random() * 100}%`,\n        left: `${Math.random() * 100}%`,\n        animationDelay: `${Math.random() * 5}s`,\n        animationDuration: `${5 + Math.random() * 5}s`,\n        transform: `scale(${0.5 + Math.random() * 1})`,\n      }\n    }));\n    setElements(newElements);\n  }, []);\n\n  return (\n    <div className=\"relative h-screen w-full flex items-center justify-center overflow-hidden bg-festive\">\n      {/* Background patterns */}\n      <div className=\"absolute inset-0 opacity-10 pointer-events-none\">\n        <svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\">\n          <defs>\n            <pattern id=\"rangoli\" x=\"0\" y=\"0\" width=\"200\" height=\"200\" patternUnits=\"userSpaceOnUse\">\n              <circle cx=\"100\" cy=\"100\" r=\"80\" fill=\"none\" stroke=\"currentColor\" strokeWidth=\"1\" />\n              <path d=\"M100 20 L100 180 M20 100 L180 100 M43 43 L157 157 M157 43 L43 157\" stroke=\"currentColor\" strokeWidth=\"1\" />\n            </pattern>\n          </defs>\n          <rect width=\"100%\" height=\"100%\" fill=\"url(#rangoli)\" />\n        </svg>\n      </div>\n\n      {/* Animated Elements */}\n      {elements.map((el) => (\n        <FloatingElement key={el.id} type={el.type} style={el.style} />\n      ))}\n\n      {/* Content */}\n      <div className=\"relative z-10 text-center px-4 max-w-4xl\">\n        <h1 className=\"text-6xl md:text-8xl font-serif text-amber-100 glow-text mb-6\">Utsav</h1>\n        <p className=\"text-xl md:text-2xl font-light text-amber-50/80 mb-10 tracking-widest uppercase\">\n          Where Tradition Meets the Future\n        </p>\n        <div className=\"flex flex-wrap gap-4 justify-center\">\n          <button \n            onClick={() => document.getElementById('explore')?.scrollIntoView({ behavior: 'smooth' })}\n            className=\"px-8 py-4 bg-amber-500 hover:bg-amber-600 text-stone-900 font-semibold rounded-full transition-all shadow-xl shadow-amber-900/20\"\n          >\n            Start Your Journey\n          </button>\n          <button \n            onClick={() => document.getElementById('chat')?.scrollIntoView({ behavior: 'smooth' })}\n            className=\"px-8 py-4 glass text-amber-100 font-semibold rounded-full border border-amber-500/30 hover:bg-amber-500/10 transition-all\"\n          >\n            Ask Utsav AI\n          </button>\n        </div>\n      </div>\n\n      {/* Gradient Overlay for bottom fade */}\n      <div className=\"absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-stone-950 to-transparent\"></div>\n    </div>\n  );\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "components/FestivalCard.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Card component for displaying festival details.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React from 'react';\nimport { FestivalInfo } from '../types';\n\ninterface Props {\n  festival: FestivalInfo;\n  imageUrl?: string;\n}\n\nexport const FestivalCard: React.FC<Props> = ({ festival, imageUrl }) => {\n  return (\n    <div className=\"glass rounded-3xl overflow-hidden group transition-all hover:translate-y-[-8px] hover:shadow-2xl hover:shadow-amber-500/10 border border-white/5\">\n      {imageUrl && (\n        <div className=\"h-64 w-full overflow-hidden\">\n          <img src={imageUrl} alt={festival.name} className=\"w-full h-full object-cover group-hover:scale-105 transition-transform duration-700\" />\n        </div>\n      )}\n      <div className=\"p-8\">\n        <div className=\"flex justify-between items-start mb-4\">\n          <h3 className=\"text-3xl font-serif text-amber-200\">{festival.name}</h3>\n          <span className=\"text-xs font-semibold px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full border border-amber-500/20\">\n            {festival.season}\n          </span>\n        </div>\n        <p className=\"text-stone-300 leading-relaxed mb-6 italic\">\"{festival.description}\"</p>\n        \n        <div className=\"space-y-4\">\n          <div>\n            <h4 className=\"text-sm font-semibold text-amber-500 uppercase tracking-widest mb-2\">Significance</h4>\n            <p className=\"text-stone-400 text-sm leading-relaxed\">{festival.significance}</p>\n          </div>\n          \n          <div>\n            <h4 className=\"text-sm font-semibold text-amber-500 uppercase tracking-widest mb-2\">History</h4>\n            <p className=\"text-stone-400 text-sm leading-relaxed\">{festival.history}</p>\n          </div>\n\n          <div>\n            <h4 className=\"text-sm font-semibold text-amber-500 uppercase tracking-widest mb-2\">Key Rituals</h4>\n            <div className=\"flex flex-wrap gap-2\">\n              {festival.rituals.map((r, i) => (\n                <span key={i} className=\"text-xs px-2 py-1 bg-stone-800 text-stone-300 rounded border border-stone-700\">\n                  {r}\n                </span>\n              ))}\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  );\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "components/ChatBot.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "AI Assistant component for cultural conversations.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React, { useState, useRef, useEffect } from 'react';\nimport { chatWithUtsavAI } from '../services/geminiService';\nimport { ChatMessage } from '../types';\n\nexport const ChatBot: React.FC = () => {\n  const [messages, setMessages] = useState<ChatMessage[]>([\n    { role: 'assistant', content: 'Greetings, seeker of culture. I am Utsav. What ancient tradition or vibrant festival can I tell you about today?' }\n  ]);\n  const [input, setInput] = useState('');\n  const [isLoading, setIsLoading] = useState(false);\n  const scrollRef = useRef<HTMLDivElement>(null);\n\n  useEffect(() => {\n    scrollRef.current?.scrollTo(0, scrollRef.current.scrollHeight);\n  }, [messages]);\n\n  const handleSend = async () => {\n    if (!input.trim() || isLoading) return;\n    \n    const userMsg: ChatMessage = { role: 'user', content: input };\n    setMessages(prev => [...prev, userMsg]);\n    setInput('');\n    setIsLoading(true);\n\n    try {\n      const response = await chatWithUtsavAI(input, messages);\n      setMessages(prev => [...prev, { role: 'assistant', content: response || \"I seem to have lost my train of thought. Please try again.\" }]);\n    } catch (err) {\n      setMessages(prev => [...prev, { role: 'assistant', content: \"Forgive me, the spirits of the web are restless. Try again in a moment.\" }]);\n    } finally {\n      setIsLoading(false);\n    }\n  };\n\n  return (\n    <section id=\"chat\" className=\"py-24 px-4 bg-stone-900/50\">\n      <div className=\"max-w-4xl mx-auto\">\n        <div className=\"text-center mb-12\">\n          <h2 className=\"text-5xl font-serif text-amber-100 mb-4\">Converse with Utsav AI</h2>\n          <p className=\"text-stone-400 max-w-2xl mx-auto\">Ask about the deeper meanings behind rituals, the stories of gods, or the culinary delights of any Indian festival.</p>\n        </div>\n\n        <div className=\"glass rounded-[2rem] border border-white/10 flex flex-col h-[600px] overflow-hidden\">\n          <div ref={scrollRef} className=\"flex-1 overflow-y-auto p-6 space-y-6 scrollbar-hide\">\n            {messages.map((msg, i) => (\n              <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>\n                <div className={`max-w-[80%] px-6 py-4 rounded-3xl ${\n                  msg.role === 'user' \n                    ? 'bg-amber-600 text-white rounded-br-none' \n                    : 'bg-stone-800 text-stone-200 rounded-bl-none border border-white/5'\n                }`}>\n                  <p className=\"leading-relaxed whitespace-pre-wrap\">{msg.content}</p>\n                </div>\n              </div>\n            ))}\n            {isLoading && (\n              <div className=\"flex justify-start\">\n                <div className=\"bg-stone-800 px-6 py-4 rounded-3xl rounded-bl-none border border-white/5\">\n                  <div className=\"flex gap-2\">\n                    <div className=\"w-2 h-2 bg-amber-500 rounded-full animate-bounce\"></div>\n                    <div className=\"w-2 h-2 bg-amber-500 rounded-full animate-bounce delay-100\"></div>\n                    <div className=\"w-2 h-2 bg-amber-500 rounded-full animate-bounce delay-200\"></div>\n                  </div>\n                </div>\n              </div>\n            )}\n          </div>\n          \n          <div className=\"p-4 bg-stone-900/80 border-t border-white/5\">\n            <div className=\"relative flex items-center\">\n              <input \n                type=\"text\" \n                value={input}\n                onChange={(e) => setInput(e.target.value)}\n                onKeyPress={(e) => e.key === 'Enter' && handleSend()}\n                placeholder=\"Ask about Diwali, Holi, Navratri...\"\n                className=\"w-full bg-stone-800 border border-white/10 rounded-full py-4 px-6 pr-14 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all text-white\"\n              />\n              <button \n                onClick={handleSend}\n                disabled={isLoading}\n                className=\"absolute right-2 w-10 h-10 bg-amber-500 hover:bg-amber-600 text-stone-950 rounded-full flex items-center justify-center transition-all shadow-lg\"\n              >\n                <i className=\"fa-solid fa-paper-plane text-sm\"></i>\n              </button>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "components/FestivalExplorer.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "The section for generating and exploring specific festivals.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React, { useState } from 'react';\nimport { getFestivalDetails, generateFestivalArt } from '../services/geminiService';\nimport { FestivalInfo } from '../types';\nimport { FestivalCard } from './FestivalCard';\n\nexport const FestivalExplorer: React.FC = () => {\n  const [searchTerm, setSearchTerm] = useState('');\n  const [loading, setLoading] = useState(false);\n  const [result, setResult] = useState<{ info: FestivalInfo, image: string } | null>(null);\n\n  const handleExplore = async () => {\n    if (!searchTerm.trim()) return;\n    setLoading(true);\n    try {\n      const [info, image] = await Promise.all([\n        getFestivalDetails(searchTerm),\n        generateFestivalArt(searchTerm)\n      ]);\n      if (info && image) {\n        setResult({ info, image });\n      }\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  return (\n    <section id=\"explore\" className=\"py-24 px-4 bg-stone-950\">\n      <div className=\"max-w-6xl mx-auto\">\n        <div className=\"text-center mb-16\">\n          <h2 className=\"text-5xl font-serif text-amber-100 mb-6\">Explore the Odyssey</h2>\n          <p className=\"text-stone-400 text-lg max-w-3xl mx-auto mb-10\">\n            Enter the name of any festival—global or local—and let Utsav unveil its mysteries through AI-generated art and cultural wisdom.\n          </p>\n          \n          <div className=\"flex flex-col md:flex-row gap-4 max-w-2xl mx-auto\">\n            <input \n              type=\"text\" \n              value={searchTerm}\n              onChange={(e) => setSearchTerm(e.target.value)}\n              placeholder=\"e.g. Kumbh Mela, Pongal, Onam...\"\n              className=\"flex-1 bg-stone-900 border border-white/10 rounded-2xl py-4 px-6 focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all text-white text-lg\"\n            />\n            <button \n              onClick={handleExplore}\n              disabled={loading}\n              className=\"px-10 py-4 bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 text-stone-950 font-bold rounded-2xl transition-all shadow-xl disabled:opacity-50\"\n            >\n              {loading ? <i className=\"fa-solid fa-spinner animate-spin mr-2\"></i> : null}\n              Manifest\n            </button>\n          </div>\n        </div>\n\n        {loading && (\n          <div className=\"flex flex-col items-center justify-center py-20\">\n            <div className=\"w-16 h-16 border-4 border-amber-500/20 border-t-amber-500 rounded-full animate-spin mb-6\"></div>\n            <p className=\"text-amber-500 animate-pulse font-serif italic text-xl\">Weaving the threads of tradition...</p>\n          </div>\n        )}\n\n        {result && !loading && (\n          <div className=\"max-w-4xl mx-auto\">\n            <FestivalCard festival={result.info} imageUrl={result.image} />\n          </div>\n        )}\n\n        {!result && !loading && (\n          <div className=\"grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 opacity-40\">\n            {['Diwali', 'Holi', 'Navratri'].map(f => (\n              <div key={f} className=\"glass p-8 rounded-3xl border border-white/5 text-center cursor-pointer hover:opacity-100 transition-opacity\" onClick={() => { setSearchTerm(f); }}>\n                <h3 className=\"text-2xl font-serif text-amber-100\">{f}</h3>\n                <p className=\"text-stone-500 text-sm mt-2 italic\">Click to manifest</p>\n              </div>\n            ))}\n          </div>\n        )}\n      </div>\n    </section>\n  );\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "components/NearbyFestivals.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Component using Google Search/Maps grounding to find nearby cultural events.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React, { useState, useEffect } from 'react';\nimport { findNearbyFestivals } from '../services/geminiService';\nimport { GroundingSource } from '../types';\n\nexport const NearbyFestivals: React.FC = () => {\n  const [location, setLocation] = useState<{ lat: number, lng: number } | null>(null);\n  const [data, setData] = useState<{ text: string, sources: GroundingSource[] } | null>(null);\n  const [loading, setLoading] = useState(false);\n\n  const fetchNearby = async (lat?: number, lng?: number) => {\n    setLoading(true);\n    try {\n      const result = await findNearbyFestivals(lat, lng);\n      setData(result);\n    } catch (err) {\n      console.error(err);\n    } finally {\n      setLoading(false);\n    }\n  };\n\n  useEffect(() => {\n    navigator.geolocation.getCurrentPosition(\n      (pos) => {\n        const coords = { lat: pos.coords.latitude, lng: pos.coords.longitude };\n        setLocation(coords);\n        fetchNearby(coords.lat, coords.lng);\n      },\n      () => {\n        fetchNearby();\n      }\n    );\n  }, []);\n\n  return (\n    <section className=\"py-24 px-4 bg-stone-900\">\n      <div className=\"max-w-6xl mx-auto\">\n        <div className=\"flex flex-col md:flex-row items-center gap-12\">\n          <div className=\"flex-1\">\n            <h2 className=\"text-4xl md:text-5xl font-serif text-amber-100 mb-6 leading-tight\">Cultural Pulses <br/><span className=\"text-amber-500\">Near You</span></h2>\n            <p className=\"text-stone-400 mb-8 leading-relaxed\">\n              Using advanced location grounding, Utsav finds temples, cultural landmarks, and ongoing festivities in your vicinity, connecting you to the pulse of tradition.\n            </p>\n            {loading ? (\n              <div className=\"space-y-4\">\n                <div className=\"h-4 bg-stone-800 rounded w-full animate-pulse\"></div>\n                <div className=\"h-4 bg-stone-800 rounded w-5/6 animate-pulse\"></div>\n                <div className=\"h-4 bg-stone-800 rounded w-4/6 animate-pulse\"></div>\n              </div>\n            ) : data ? (\n              <div className=\"space-y-6\">\n                <div className=\"prose prose-invert max-w-none text-stone-300\">\n                   {data.text}\n                </div>\n                {data.sources.length > 0 && (\n                  <div>\n                    <h4 className=\"text-sm font-semibold text-amber-500 uppercase tracking-widest mb-3\">Verified Sources</h4>\n                    <div className=\"flex flex-wrap gap-3\">\n                      {data.sources.map((src, i) => (\n                        <a \n                          key={i} \n                          href={src.uri} \n                          target=\"_blank\" \n                          rel=\"noopener noreferrer\"\n                          className=\"px-4 py-2 glass rounded-full text-xs text-amber-200 border border-amber-500/20 hover:bg-amber-500/10 transition-colors\"\n                        >\n                          <i className=\"fa-solid fa-location-dot mr-2\"></i>\n                          {src.title}\n                        </a>\n                      ))}\n                    </div>\n                  </div>\n                )}\n              </div>\n            ) : (\n              <p className=\"text-stone-500 italic\">No cultural data found for your region yet.</p>\n            )}\n          </div>\n          <div className=\"flex-1 w-full max-w-md\">\n            <div className=\"relative aspect-square glass rounded-full flex items-center justify-center p-12 border border-white/10 group\">\n              <div className=\"absolute inset-0 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-all\"></div>\n              <div className=\"relative text-center\">\n                <i className=\"fa-solid fa-compass text-6xl text-amber-500 mb-6 animate-pulse\"></i>\n                <h3 className=\"text-2xl font-serif text-amber-100\">Regional Explorer</h3>\n                <p className=\"text-stone-500 text-sm mt-2\">AI-guided local insights</p>\n              </div>\n            </div>\n          </div>\n        </div>\n      </div>\n    </section>\n  );\n};\n"
+            }
+          ]
+        },
+        {
+          "path": "App.tsx",
+          "generationType": 0,
+          "isDone": true,
+          "description": "Main application component with layout and sections.",
+          "diffs": [
+            {
+              "target": "",
+              "replacement": "\nimport React from 'react';\nimport { Hero } from './components/Hero';\nimport { FestivalExplorer } from './components/FestivalExplorer';\nimport { ChatBot } from './components/ChatBot';\nimport { NearbyFestivals } from './components/NearbyFestivals';\n\nconst App: React.FC = () => {\n  return (\n    <div className=\"min-h-screen\">\n      {/* Navigation */}\n      <nav className=\"fixed top-0 left-0 w-full z-50 px-6 py-4 flex justify-between items-center glass border-b border-white/5\">\n        <div className=\"flex items-center gap-2\">\n          <div className=\"w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center\">\n             <i className=\"fa-solid fa-fire-flame-curved text-stone-900 text-sm\"></i>\n          </div>\n          <span className=\"text-2xl font-serif font-bold text-amber-500 tracking-tighter\">Utsav</span>\n        </div>\n        <div className=\"hidden md:flex gap-8 text-sm font-medium text-amber-100/60\">\n          <a href=\"#explore\" className=\"hover:text-amber-500 transition-colors\">Explorer</a>\n          <a href=\"#chat\" className=\"hover:text-amber-500 transition-colors\">AI Guide</a>\n          <a href=\"#nearby\" className=\"hover:text-amber-500 transition-colors\">Nearby</a>\n        </div>\n        <button className=\"px-5 py-2 bg-amber-500 text-stone-950 rounded-full text-xs font-bold hover:bg-amber-400 transition-all\">\n          Connect\n        </button>\n      </nav>\n\n      <main>\n        <Hero />\n        <div className=\"relative z-10\">\n          <FestivalExplorer />\n          <NearbyFestivals />\n          <ChatBot />\n        </div>\n      </main>\n\n      <footer className=\"bg-stone-950 py-12 px-6 border-t border-white/5\">\n        <div className=\"max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8\">\n          <div className=\"text-center md:text-left\">\n            <div className=\"flex items-center gap-2 justify-center md:justify-start mb-4\">\n              <div className=\"w-6 h-6 bg-amber-500 rounded flex items-center justify-center\">\n                 <i className=\"fa-solid fa-fire-flame-curved text-stone-900 text-[10px]\"></i>\n              </div>\n              <span className=\"text-xl font-serif font-bold text-amber-500\">Utsav</span>\n            </div>\n            <p className=\"text-stone-500 text-sm\">Preserving heritage through intelligence.</p>\n          </div>\n          <div className=\"flex gap-6 text-stone-400\">\n            <i className=\"fa-brands fa-instagram hover:text-amber-500 cursor-pointer\"></i>\n            <i className=\"fa-brands fa-twitter hover:text-amber-500 cursor-pointer\"></i>\n            <i className=\"fa-brands fa-facebook hover:text-amber-500 cursor-pointer\"></i>\n          </div>\n          <p className=\"text-stone-600 text-xs\">© 2024 Utsav Odyssey. Powered by Gemini.</p>\n        </div>\n      </footer>\n    </div>\n  );\n};\n\nexport default App;\n"
+            }
+          ]
+        }
+      ]
+    },
+    "createdTimestamp": {
+      "seconds": 1769582910,
+      "nanos": 469000000
+    },
+    "doneTimestamp": {
+      "seconds": 1769582910,
+      "nanos": 872000000
+    }
+  }
+]
